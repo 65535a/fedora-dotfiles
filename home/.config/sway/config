@@ -84,12 +84,12 @@ default_dim_inactive 0.15
 #}
 
 layer_effects "launcher" {
-    blur enable;
+    blur disable;
     corner_radius 3;
 }
 
 layer_effects "stats-widget" {
-    blur enable;
+    blur disable;
     corner_radius 12;
 }
 
