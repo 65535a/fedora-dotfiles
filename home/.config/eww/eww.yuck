@@ -1,6 +1,6 @@
 (defpoll cpu_usage :interval "0.5s" "top -bn1 | grep Cpu | awk '{print $2}'")
 (defpoll mem_usage :interval "1s" "free | awk '/Mem/{printf \"%.0f\", $3/$2*100}'")
-(defpoll cpu_temp :interval "1s" "sensors | grep -m1 'temp1' | grep -oE '[0-9]+\\.[0-9]+' | head -1")
+(defpoll cpu_temp :interval "1s" "sensors | grep -m1 'temp:' | grep -oE '[0-9]+\\.[0-9]+' | head -1")
 
 (defwidget stat-box [label value min max color]
   (box :class "stat-box" :orientation "v" :space-evenly false
@@ -9,9 +9,9 @@
 
 (defwidget system-graphs []
   (box :class "graph-row" :orientation "v" :space-evenly true :spacing 10
-    (stat-box :label "CPU" :value cpu_usage :min 0 :max 100 :color "none")
-    (stat-box :label "RAM" :value mem_usage :min 0 :max 100 :color "none")
-    (stat-box :label "TMP" :value cpu_temp :min 10 :max 100 :color "none")))
+    (stat-box :label "CPU" :value cpu_usage :min 0 :max 100 :color "graph-graph")
+    (stat-box :label "RAM" :value mem_usage :min 0 :max 100 :color "graph-graph")
+    (stat-box :label "TMP" :value cpu_temp :min 10 :max 100 :color "graph-graph")))
 
 (defwindow stats-widget
   :monitor 0
