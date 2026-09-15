@@ -38,7 +38,7 @@ input type:touchpad {
 ### Appearance / Theming
 ### ---------------------------------------------------------------------
 output eDP-1 scale 1.75
-font pango:JetBrainsMono Nerd Font 13
+font pango:Inconsolata 13
 
 # Widely installed alternative with better unicode coverage, if needed:
 # font pango:DejaVu Sans Mono 8

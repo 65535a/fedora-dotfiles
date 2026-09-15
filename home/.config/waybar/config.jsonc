@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "font": "JetBrainsMono Nerd Font 10",
+    "font": "Inconsolata 10",
 
     "custom/system-drawer": {
         "format": "󰱤",
