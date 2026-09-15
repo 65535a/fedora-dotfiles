@@ -1,7 +1,15 @@
+;; ===== Polling variables =====
 (defpoll cpu_usage :interval "0.5s" "top -bn1 | grep Cpu | awk '{print $2}'")
 (defpoll mem_usage :interval "1s" "free | awk '/Mem/{printf \"%.0f\", $3/$2*100}'")
 (defpoll cpu_temp :interval "1s" "sensors | grep -m1 'temp:' | grep -oE '[0-9]+\\.[0-9]+' | head -1")
+(defpoll net_down :interval "2s" "/home/aku/.config/eww/scripts/net-down.sh")
+(defpoll net_up :interval "2s" "/home/aku/.config/eww/scripts/net-up.sh")
+(defpoll top_cpu :interval "3s" "/home/aku/.config/eww/scripts/top-cpu.sh")
+(defpoll top_mem :interval "3s" "/home/aku/.config/eww/scripts/top-mem.sh")
+(defpoll journal_lines :interval "3s" :initial "[]"
+    "journalctl -n 61 -o cat --no-pager | sed -r 's/\\x1b\\[[0-9;]*[a-zA-Z]//g' | iconv -f utf-8 -t utf-8 -c | jq -R -s -c 'split(\"\\n\") | map(select(length > 0))'")
 
+;; ===== System stat graphs (CPU / RAM / Temp) =====
 (defwidget stat-box [label value min max color]
   (box :class "stat-box" :orientation "v" :space-evenly false
     (label :class "graph-tag" :text label)
@@ -13,9 +21,53 @@
     (stat-box :label "RAM" :value mem_usage :min 0 :max 100 :color "graph-graph")
     (stat-box :label "TMP" :value cpu_temp :min 10 :max 100 :color "graph-graph")))
 
+;; ===== Network graphs =====
+(defwidget net-graphs []
+  (box :class "graph-row" :orientation "v" :space-evenly true :spacing 10
+    (box :class "stat-box" :orientation "v" :space-evenly false
+      (label :class "graph-tag" :text "↓ ${net_down} KB/s")
+      (graph :value {net_down} :thickness 2 :time-range "60s" :min 0 :max 2000 :dynamic true :width 100 :height 80 :class "graph-net-down"))
+    (box :class "stat-box" :orientation "v" :space-evenly false
+      (label :class "graph-tag" :text "↑ ${net_up} KB/s")
+      (graph :value {net_up} :thickness 2 :time-range "60s" :min 0 :max 2000 :dynamic true :width 100 :height 80 :class "graph-net-up"))))
+
+;; ===== Top processes =====
+(defwidget proc-list [title procs unit]
+  (box :class "proc-panel" :orientation "v" :space-evenly false :spacing 3
+    (label :class "panel-title" :text title :halign "start")
+    (for proc in procs
+      (box :orientation "h" :space-evenly false :spacing 8
+        (label :class "proc-name" :text {proc.name} :limit-width 14 :halign "start")
+        (label :class "proc-val" :text "${proc.val}${unit}" :halign "end")))))
+
+(defwidget top-processes []
+  (box :class "graph-row" :orientation "v" :space-evenly true :spacing 10
+    (proc-list :title "Top CPU" :procs top_cpu :unit "%")
+    (proc-list :title "Top RAM" :procs top_mem :unit "%")))
+
+;; ===== Combined stats window =====
+(defwidget all-widgets []
+  (box :class "graph-row" :orientation "v" :space-evenly false :spacing 12
+    (system-graphs)
+    (net-graphs)
+    (top-processes)))
+
 (defwindow stats-widget
   :monitor 0
-  :geometry (geometry :x "12px" :y "24px" :width "200" :height "90px" :anchor "top left")
+  :geometry (geometry :x "12px" :y "48px" :width "200px" :height "650px" :anchor "top right")
   :stacking "bg"
   :exclusive false
-  (system-graphs))
+  (all-widgets))
+
+;; ===== Journal log widget =====
+(defwidget journal-log []
+  (box :class "journal-panel" :orientation "v" :space-evenly false
+    (for line in journal_lines
+      (label :class "journal-line" :text {line} :halign "start" :xalign 0 :limit-width 400 :truncate true))))
+
+(defwindow journal-widget
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "700px" :height "1050px" :anchor "top left")
+  :stacking "bg"
+  :exclusive false
+  (journal-log))

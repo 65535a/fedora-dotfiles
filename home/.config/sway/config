@@ -109,7 +109,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Set wallpaper
-exec_always swaybg -i ~/Pictures/wallpapers/cassette.png -m fill
+exec_always swaybg -i ~/Pictures/wallpapers/technorects.png -m fill
 
 
 ### ---------------------------------------------------------------------
@@ -265,17 +265,21 @@ bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-
 ### Widgets
 ### ---------------------------------------------------------------------
 
-exec eww daemon; exec eww open stats-widget
+#exec eww daemon && sleep 4 && eww open stats-widget; eww open processes-widget
 
 ### ---------------------------------------------------------------------
 ### Extra keymappings
 ### ---------------------------------------------------------------------
 
-#Logout
+# Logout
 bindsym $mod+Control+q exec wlogout
 
-#Screenshot
+# Screenshot
 bindsym $mod+shift+s exec grim -g "$(slurp)" - | swappy -f -
 
-#Widgets on/off
+# Color picker
+
+bindsym $mod+Control+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
+
+# Widgets on/off
 bindsym $mod+Control+w exec $HOME/.config/waybar/scripts/toggle-widgets.sh

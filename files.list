@@ -33,3 +33,7 @@
 # Eww Widgets
 .config/eww/eww.yuck
 .config/eww/eww.scss
+.config/eww/scripts/net-down.sh
+.config/eww/scripts/net-up.sh
+.config/eww/scripts/top-cpu.sh
+.config/eww/scripts/top-mem.sh

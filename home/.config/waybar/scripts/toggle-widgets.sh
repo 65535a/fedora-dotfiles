@@ -1,9 +1,15 @@
 #!/bin/bash
 EWW="$HOME/.local/bin/eww"
-WINDOW="stats-widget"
+WINDOWS=("stats-widget" "journal-widget")
 
-if $EWW active-windows | grep -q "$WINDOW"; then
-    $EWW close "$WINDOW"
+if $EWW active-windows | grep -q "${WINDOWS[0]}"; then
+    for w in "${WINDOWS[@]}"; do
+        $EWW close "$w"
+    done
 else
-    $EWW open "$WINDOW"
+    for w in "${WINDOWS[@]}"; do
+        $EWW open "$w"
+    done
 fi
+
+pkill -RTMIN+8 waybar
