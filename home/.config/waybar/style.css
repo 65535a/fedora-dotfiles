@@ -1,0 +1,70 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 10pt;
+}
+
+window#waybar {
+    background-color: #252528;
+    color: #7a7c7f;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: #222222;
+    color: #888888;
+    border: 2px solid #333333;
+}
+
+#workspaces button.focused {
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid #8d9393;
+}
+
+#workspaces button.visible {
+    background-color: #222222;
+    color: #ffffff;
+    border: 2px solid #333333;
+}
+
+#workspaces button.urgent {
+    background-color: #900000;
+    color: #ffffff;
+    border: 2px solid #2f343a;
+}
+
+#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor {
+    padding: 0 10px;
+    color: #777777;
+}
+
+#clock {
+    padding: 0 10px;
+    color: #777777;
+}
+
+#custom-power {
+    padding: 0 12px;
+    color: #777777;
+}
+
+/* i3blocks-style separators between modules */
+#network, #pulseaudio, #memory, #disk, #cpu, #temperature, #battery, #clock, #custom-power, #privacy, #custom-updates {
+    border-left: 1px solid #333333;
+}
+
+.system-drawer {
+    opacity: 1;
+    transition: opacity 400ms, margin 400ms;
+    margin-left: -20px;
+}
+
+#group-system:hover .system-drawer {
+    opacity: 1;
+    margin-left: 0;
+}
+
+#group-system {
+    background-color: #252528;
+    margin: 0;
+}

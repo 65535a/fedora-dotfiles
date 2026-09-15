@@ -1,0 +1,16 @@
+# ~/.config/swaylock/config
+
+color=1e1e2e
+font=Inconsolata
+indicator-radius=100
+indicator-thickness=10
+ring-color=45475a
+ring-clear-color=f38ba8
+ring-ver-color=a6e3a1
+ring-wrong-color=f38ba8
+key-hl-color=89b4fa
+line-color=00000000
+inside-color=1e1e2eaa
+text-color=cdd6f4
+ignore-empty-password
+show-failed-attempts

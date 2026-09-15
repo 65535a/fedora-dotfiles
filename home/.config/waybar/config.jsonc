@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "font": "JetBrainsMono Nerd Font 10",
+
+    "custom/system-drawer": {
+        "format": "󰱤",
+        "tooltip": false
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "system-drawer",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/system-drawer",
+            "cpu",
+            "memory",
+            "disk",
+            "temperature",
+        ]
+    },
+
+
+    
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["idle_inhibitor", "mpris","group/system", "tray"],
+    "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
+
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 50
+    },
+
+    "custom/updates": {
+        "exec": "dnf check-update --quiet 2>/dev/null | grep -c '^[a-zA-Z0-9]' || true",
+        "interval": 3600,
+        "format": "󰚰 {}",
+        "on-click": "alacritty -e sudo dnf upgrade"
+    },
+
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-connected": "󰂯 {device_alias}",
+        "on-click": "blueman-manager"
+    },
+
+    "mpris": {
+        "format": "{player_icon} {title}",
+        "format-paused": "{status_icon} {title}",
+        "player-icons": { "default": "▶" },
+        "status-icons": { "paused": "⏸" }
+    },
+
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "modules": [
+            { "type": "screenshare" },
+            { "type": "audio-in" }
+        ]
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true
+    },
+
+    "network": {
+        "format-wifi": "直 {essid}",
+        "format-disconnected": "睊 down",
+        "interval": 10
+    },
+
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰝟 muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {percentage}%"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+    },
+
+    "temperature": {
+        "interval": 5,
+        "hwmon-path": "/sys/class/hwmon/hwmonX/tempY_input",
+        "format": "{temperatureC} 󰔄"
+    },
+
+    "battery": {
+        "interval": 15,
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"]
+    },
+
+    "clock": {
+        "interval": 5,
+        "format": "{:%a %d %b  %H:%M}"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": { "activated": "󰒳", "deactivated": "󰒲" }
+    }
+}

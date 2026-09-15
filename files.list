@@ -1,0 +1,28 @@
+# Sway
+.config/sway/config
+
+# SwayFX layer effects / any split config files, if you use them
+# .config/sway/config.d/
+
+# Waybar
+.config/waybar/config.jsonc
+.config/waybar/style.css
+.config/waybar/scripts/
+
+# Fuzzel
+.config/fuzzel/fuzzel.ini
+
+# Lock screen
+.config/swaylock/config
+
+# Power menu
+.config/wlogout/layout
+.config/wlogout/style.css
+
+# Volume/brightness OSD
+.config/wob/wob.ini
+
+# Manually-created launchers
+.local/share/applications/*
+
+
