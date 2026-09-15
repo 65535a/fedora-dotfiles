@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Obsidian
+Comment=Knowledge base and note-taking app
+Exec=/opt/AppImages/Obsidian.AppImage %U
+Terminal=false
+Type=Application
+Categories=Office;Utility;
+StartupWMClass=obsidian
+

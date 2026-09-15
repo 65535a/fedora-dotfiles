@@ -28,7 +28,7 @@
 
     
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["idle_inhibitor", "mpris","group/system", "tray"],
+    "modules-center": ["idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
 
     "sway/window": {
@@ -128,6 +128,14 @@
     
     "idle_inhibitor": {
         "format": "{icon}",
-        "format-icons": { "activated": "󰒳", "deactivated": "󰒲" }
+        "format-icons": { "activated": "󰒳", "deactivated": "󰒲" },
+    },
+
+    "custom/widgets-toggle": {
+        "exec": "/home/aku/.config/waybar/scripts/widgets-status.sh",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "/home/aku/.config/waybar/scripts/toggle-widgets.sh",
+        "signal": 8
     }
 }

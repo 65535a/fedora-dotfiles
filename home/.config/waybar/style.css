@@ -33,7 +33,7 @@ window#waybar {
     border: 2px solid #2f343a;
 }
 
-#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor {
+#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-widgets-toggle {
     padding: 0 10px;
     color: #777777;
 }
@@ -67,4 +67,17 @@ window#waybar {
 #group-system {
     background-color: #252528;
     margin: 0;
+}
+
+#custom-widgets-toggle {
+    padding: 0 10px;
+    color: #7a7c7f;
+}
+
+#custom-widgets-toggle:hover {
+    color: #bbbbbb;
+}
+
+#idle_inhibitor:hover {
+    color: #bbbbbb;
 }

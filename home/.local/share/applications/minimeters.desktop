@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Minimeters
+Comment=Collection of audio meters.
+Exec=/opt/AppImages/MiniMeters-aarch64.AppImage %U
+Terminal=false
+Type=Application
+Categories=Audio;
+StartupWMClass=minimeters
+

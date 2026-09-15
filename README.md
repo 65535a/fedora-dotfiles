@@ -12,5 +12,24 @@ sudo dnf copr enable alternateved/cliphist
 Install packages:
 
 ```bash
-sudo dnf install tmux curl wget git fish fzf alacritty fonts-inconsolata, lm_sensors jetbrains-mono-fonts-all cifs-utils swayidle swayfx waybar fuzzel swaylock-effects wlogout swaybg wob brightnessctl grim slurp swappy cliphist wl-clipboard fuse fuse-libs fuse3 jetbrains-mono-nerd-fonts fontawesome-fonts zlib-devel qt5ct qt6ct blueman papirus-icon-theme pipewire-jack-audio-connection-kit qpwgraph audacity
+sudo dnf install tmux curl wget git fish fzf alacritty fonts-inconsolata, lm_sensors jetbrains-mono-fonts-all cifs-utils swayidle swayfx waybar fuzzel swaylock-effects wlogout swaybg wob brightnessctl grim slurp swappy cliphist wl-clipboard fuse fuse-libs fuse3 jetbrains-mono-nerd-fonts fontawesome-fonts zlib-devel qt5ct qt6ct blueman papirus-icon-theme pipewire-jack-audio-connection-kit qpwgraph audacity vlc
+```
+
+## Extras:
+
+Eww
+
+```bash
+sudo dnf install gtk3-devel glib2-devel cairo-devel cairo-gobject-devel \
+    pango-devel gdk-pixbuf2-devel gtk-layer-shell-devel \
+    pkgconf-pkg-config libdbusmenu-devel libdbusmenu-gtk3-devel
+```
+
+```bash
+sudo dnf install rust cargo
+git clone https://github.com/elkowar/eww.git
+cd eww
+cargo build --release --no-default-features --features=wayland
+mkdir -p ~/.local/bin
+cp target/release/eww ~/.local/bin/
 ```

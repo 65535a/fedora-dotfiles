@@ -1,6 +1,9 @@
 # Sway
 .config/sway/config
 
+# Alacritty
+.config/alacritty/alacritty.toml
+
 # SwayFX layer effects / any split config files, if you use them
 # .config/sway/config.d/
 
@@ -23,6 +26,10 @@
 .config/wob/wob.ini
 
 # Manually-created launchers
-.local/share/applications/*
+.local/share/applications/obsidian.desktop
+.local/share/applications/minimeters.desktop
+.local/share/applications/sublime_text.desktop
 
-
+# Eww Widgets
+.config/eww/eww.yuck
+.config/eww/eww.scss
