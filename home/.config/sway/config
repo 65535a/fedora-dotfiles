@@ -53,13 +53,13 @@ gaps outer 4
 # Window colors
 #                       border    bground   text      indicator child_border
 client.focused          #555555   #151515   #d3d7cf   #535758   #222222
-client.focused_inactive #333333   #000000   #b8baba   #484e50   #5f676a
+client.focused_inactive #333333   #000000   #b8baba   #484e50   #222222
 client.unfocused        #333333   #222222   #888888   #292d2e   #222222
 client.urgent           #2f343a   #900000   #ffffff   #900000   #900000
 client.placeholder      #000000   #0c0c0c   #ffffff   #000000   #0c0c0c
 
 # Blur
-blur enable
+blur disable
 blur_passes 2
 blur_radius 3
 
@@ -70,9 +70,9 @@ animation_duration_ms 150
 corner_radius 3
 
 # Shadows
-shadows enable
-shadow_blur_radius 20
-shadow_color #000000
+#shadows enable
+#shadow_blur_radius 20
+#shadow_color #000000
 
 # Dim inactive windows
 default_dim_inactive 0.15
@@ -85,13 +85,11 @@ default_dim_inactive 0.15
 
 layer_effects "launcher" {
     blur enable;
-    shadows enable;
     corner_radius 3;
 }
 
 layer_effects "stats-widget" {
     blur enable;
-    shadows enable;
     corner_radius 12;
 }
 

@@ -4,33 +4,36 @@
 }
 
 window#waybar {
-    background-color: #252528;
+    background-color: transparent;
     color: #7a7c7f;
+    border-bottom: 1px solid #333333;
 }
+
 
 #workspaces button {
     padding: 0 8px;
     background-color: #222222;
     color: #888888;
-    border: 2px solid #333333;
+    border: 1px solid #333333;
+    border-radius: 4%;
 }
 
 #workspaces button.focused {
     background-color: #333333;
     color: #ffffff;
-    border: 2px solid #8d9393;
+    border: 1px solid #8d9393;
 }
 
 #workspaces button.visible {
     background-color: #222222;
     color: #ffffff;
-    border: 2px solid #333333;
+    border: 1px solid #333333;
 }
 
 #workspaces button.urgent {
     background-color: #900000;
     color: #ffffff;
-    border: 2px solid #2f343a;
+    border: 1px solid #2f343a;
 }
 
 #network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-widgets-toggle {

@@ -25,8 +25,6 @@
         ]
     },
 
-
-    
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
