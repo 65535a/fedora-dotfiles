@@ -6,7 +6,7 @@
 window#waybar {
     background-color: transparent;
     color: #7a7c7f;
-    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
 }
 
 
@@ -36,7 +36,7 @@ window#waybar {
     border: 1px solid #2f343a;
 }
 
-#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-widgets-toggle {
+#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #mpris, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-widgets-toggle {
     padding: 0 10px;
     color: #777777;
 }

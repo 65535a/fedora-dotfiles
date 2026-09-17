@@ -26,10 +26,10 @@
   (box :class "graph-row" :orientation "v" :space-evenly true :spacing 10
     (box :class "stat-box" :orientation "v" :space-evenly false
       (label :class "graph-tag" :text "↓ ${net_down} KB/s")
-      (graph :value {net_down} :thickness 2 :time-range "60s" :min 0 :max 2000 :dynamic true :width 100 :height 80 :class "graph-net-down"))
+      (graph :value {net_down} :thickness 2 :time-range "60s" :min 0 :max 20000 :dynamic true :width 100 :height 80 :class "graph-net-down"))
     (box :class "stat-box" :orientation "v" :space-evenly false
       (label :class "graph-tag" :text "↑ ${net_up} KB/s")
-      (graph :value {net_up} :thickness 2 :time-range "60s" :min 0 :max 2000 :dynamic true :width 100 :height 80 :class "graph-net-up"))))
+      (graph :value {net_up} :thickness 2 :time-range "60s" :min 0 :max 20000 :dynamic true :width 100 :height 80 :class "graph-net-up"))))
 
 ;; ===== Top processes =====
 (defwidget proc-list [title procs unit]
