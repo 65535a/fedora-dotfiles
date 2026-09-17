@@ -35,6 +35,14 @@ input type:touchpad {
 
 
 ### ---------------------------------------------------------------------
+### Graphical environment fix (Not working yet)
+### ---------------------------------------------------------------------
+
+exec dbus-update-activation-environment --systemd --all
+exec systemctl --user start graphical-session.target
+
+
+### ---------------------------------------------------------------------
 ### Appearance / Theming
 ### ---------------------------------------------------------------------
 output eDP-1 scale 1.75
@@ -93,6 +101,7 @@ layer_effects "stats-widget" {
     corner_radius 12;
 }
 
+
 ### ---------------------------------------------------------------------
 ### Bar
 ### ---------------------------------------------------------------------
@@ -109,7 +118,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Set wallpaper
-exec_always swaybg -i ~/Pictures/wallpapers/technorects.png -m fill
+exec_always swaybg -i ~/.local/wallpapers/ono-sendai.png -m fill
 
 
 ### ---------------------------------------------------------------------
@@ -266,6 +275,7 @@ bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-
 ### ---------------------------------------------------------------------
 
 #exec eww daemon && sleep 4 && eww open stats-widget; eww open processes-widget
+exec $HOME/.config/waybar/scripts/toggle-widgets.sh
 
 ### ---------------------------------------------------------------------
 ### Extra keymappings

@@ -12,33 +12,33 @@ bold_italic = { family = "Inconsolata", style = "Bold Italic" }
 size = 10.0
 
 [colors.primary]
-foreground = "#dcd7ba"
-background = "#1f1f23"
+foreground = "#b0b0b0"
+background = "#252528"
 
 [colors.cursor]
-text = "#1f1f28"
-cursor = "#dcd7ba"
+text = "#252528"
+cursor = "#7a9099"
 
 [colors.selection]
-text = "#c8c093"
-background = "#2d4f67"
+text = "#c8c8c0"
+background = "#333333"
 
 [colors.normal]
-black = "#16161d"
-red = "#c34043"
-green = "#76946a"
-yellow = "#c0a36e"
-blue = "#7e9cd8"
-magenta = "#957fb8"
-cyan = "#6a9589"
-white = "#c8c093"
+black = "#26252c"
+red = "#8a5555"
+green = "#656555"
+yellow = "#8a7548"
+blue = "#6b8ba3"
+magenta = "#7d6f8a"
+cyan = "#5f8a8a"
+white = "#a8a8a0"
 
 [colors.bright]
-black = "#727169"
-red = "#e82424"
-green = "#98bb6c"
-yellow = "#e6c384"
-blue = "#7fb4ca"
-magenta = "#938aa9"
-cyan = "#7aa89f"
-white = "#dcd7ba"
+black = "#555555"
+red = "#a56b6b"
+green = "#858575"
+yellow = "#a8916a"
+blue = "#89a8bd"
+magenta = "#948aa0"
+cyan = "#7aa5a5"
+white = "#c0c0b8"
