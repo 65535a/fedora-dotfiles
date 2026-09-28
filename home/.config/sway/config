@@ -41,6 +41,11 @@ input type:touchpad {
 exec dbus-update-activation-environment --systemd --all
 exec systemctl --user start graphical-session.target
 
+### ---------------------------------------------------------------------
+### Notifications
+### ---------------------------------------------------------------------
+
+exec mako
 
 ### ---------------------------------------------------------------------
 ### Appearance / Theming
@@ -258,9 +263,9 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 
 bindsym $mod+Shift+l exec swaylock -c 1e1e2e
 exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
+    timeout 100 'swaylock -f' \
+    timeout 600 'brightnessctl -s set 0' \
+    resume 'brightnessctl -r' \
     before-sleep 'swaylock -f -c 1e1e2e'
 
 ### ---------------------------------------------------------------------

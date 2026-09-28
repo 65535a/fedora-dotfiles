@@ -1,0 +1,18 @@
+font=Inconsolata 9
+width=320
+height=110
+margin=12
+padding=12
+border-size=1
+border-radius=4
+default-timeout=6000
+anchor=top-right
+layer=overlay
+
+background-color=#252528EE
+text-color=#b0b0b0
+border-color=#555555
+
+[urgency=high]
+border-color=#900000
+default-timeout=0

@@ -37,3 +37,6 @@
 .config/eww/scripts/net-up.sh
 .config/eww/scripts/top-cpu.sh
 .config/eww/scripts/top-mem.sh
+
+# Mako
+.config/mako/config
