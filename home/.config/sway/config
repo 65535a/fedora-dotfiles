@@ -21,7 +21,6 @@ set $ws10 "10"
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
-
 ### ---------------------------------------------------------------------
 ### Input devices
 ### ---------------------------------------------------------------------
@@ -32,7 +31,6 @@ input type:keyboard {
 input type:touchpad {
     dwt disabled
 }
-
 
 ### ---------------------------------------------------------------------
 ### Graphical environment fix (Not working yet)
@@ -110,12 +108,13 @@ layer_effects "stats-widget" {
 ### ---------------------------------------------------------------------
 ### Bar
 ### ---------------------------------------------------------------------
-exec_always "pkill -x waybar; waybar"
 
+exec_always "pkill -x waybar; waybar"
 
 ### ---------------------------------------------------------------------
 ### Autostart
 ### ---------------------------------------------------------------------
+
 # XDG autostart .desktop files
 exec --no-startup-id dex --autostart --environment i3
 
@@ -144,15 +143,15 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl -m -P 
 ### ---------------------------------------------------------------------
 ### Launchers / applications
 ### ---------------------------------------------------------------------
+
 bindsym $mod+Return exec alacritty
-#bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+space exec fuzzel
 bindsym $mod+Shift+q kill
-
 
 ### ---------------------------------------------------------------------
 ### Focus movement
 ### ---------------------------------------------------------------------
+
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -171,6 +170,7 @@ bindsym $mod+a focus parent
 ### ---------------------------------------------------------------------
 ### Window movement
 ### ---------------------------------------------------------------------
+
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -180,6 +180,7 @@ bindsym $mod+Shift+Right move right
 ### ---------------------------------------------------------------------
 ### Layout / floating
 ### ---------------------------------------------------------------------
+
 floating_modifier $mod
 
 bindsym $mod+h split h
@@ -196,6 +197,7 @@ bindsym $mod+Shift+space floating toggle
 ### ---------------------------------------------------------------------
 ### Workspaces
 ### ---------------------------------------------------------------------
+
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -222,6 +224,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ### ---------------------------------------------------------------------
 ### Resize mode
 ### ---------------------------------------------------------------------
+
 mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
@@ -263,7 +266,7 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 
 bindsym $mod+Shift+l exec swaylock -c 1e1e2e
 exec swayidle -w \
-    timeout 100 'swaylock -f' \
+    timeout 300 'swaylock -f' \
     timeout 600 'brightnessctl -s set 0' \
     resume 'brightnessctl -r' \
     before-sleep 'swaylock -f -c 1e1e2e'
@@ -281,6 +284,13 @@ bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-
 
 #exec eww daemon && sleep 4 && eww open stats-widget; eww open processes-widget
 exec $HOME/.config/waybar/scripts/toggle-widgets.sh
+
+### ---------------------------------------------------------------------
+### Login items
+### ---------------------------------------------------------------------
+
+#qpwgraph
+exec qpwgraph -m
 
 ### ---------------------------------------------------------------------
 ### Extra keymappings

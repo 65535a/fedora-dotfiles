@@ -26,7 +26,7 @@
     },
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray"],
+    "modules-center": ["custom/cpugov", "idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
 
     "sway/window": {
@@ -135,5 +135,13 @@
         "interval": 2,
         "on-click": "/home/aku/.config/waybar/scripts/toggle-widgets.sh",
         "signal": 8
+    },
+
+    "custom/cpugov": {
+        "exec": "~/.config/waybar/scripts/cpu-gov-status.sh",
+        "return-type": "json",
+        "interval": 10,
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/perf-mode.sh"
     }
 }
