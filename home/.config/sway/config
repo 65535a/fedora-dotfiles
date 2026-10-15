@@ -33,6 +33,15 @@ input type:touchpad {
 }
 
 ### ---------------------------------------------------------------------
+### Keyboard backlight controls
+### ---------------------------------------------------------------------
+
+exec brightnessctl -d kbd_backlight set 30%
+
+bindsym Mod1+XF86MonBrightnessDown exec brightnessctl -d kbd_backlight set 10%- && brightnessctl -d kbd_backlight -m -P get > $SWAYSOCK.wob
+bindsym Mod1+XF86MonBrightnessUp exec brightnessctl -d kbd_backlight set +10% && brightnessctl -d kbd_backlight -m -P get > $SWAYSOCK.wob
+
+### ---------------------------------------------------------------------
 ### Graphical environment fix (Not working yet)
 ### ---------------------------------------------------------------------
 

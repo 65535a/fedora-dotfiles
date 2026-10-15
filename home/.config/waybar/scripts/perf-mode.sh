@@ -3,7 +3,7 @@
 # Runs as your normal user. Only the root-owned /usr/local/bin/cpu-gov-toggle
 # runs with sudo; nothing in this file gets root rights.
 
-QUANTUM=128         # buffer size in samples when performance mode is on
+QUANTUM=256         # buffer size in samples when performance mode is on
 RATE=48000          # sample rate in Hz when performance mode is on
 NORMAL_QUANTUM=1024 # buffer size in samples when performance mode is off
 
