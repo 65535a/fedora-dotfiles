@@ -7,7 +7,7 @@
 (defpoll top_cpu :interval "3s" "/home/aku/.config/eww/scripts/top-cpu.sh")
 (defpoll top_mem :interval "3s" "/home/aku/.config/eww/scripts/top-mem.sh")
 (defpoll journal_lines :interval "3s" :initial "[]"
-    "journalctl -n 61 -o cat --no-pager | sed -r 's/\\x1b\\[[0-9;]*[a-zA-Z]//g' | iconv -f utf-8 -t utf-8 -c | jq -R -s -c 'split(\"\\n\") | map(select(length > 0))'")
+    "journalctl -n 74 -o cat --no-pager | sed -r 's/\\x1b\\[[0-9;]*[a-zA-Z]//g' | iconv -f utf-8 -t utf-8 -c | jq -R -s -c 'split(\"\\n\") | map(select(length > 0))'")
 
 ;; ===== System stat graphs (CPU / RAM / Temp) =====
 (defwidget stat-box [label value min max color]
@@ -67,7 +67,7 @@
 
 (defwindow journal-widget
   :monitor 0
-  :geometry (geometry :x "0px" :y "0px" :width "700px" :height "1050px" :anchor "top left")
+  :geometry (geometry :x "0px" :y "0px" :width "1000px" :height "1050px" :anchor "top left")
   :stacking "bg"
   :exclusive false
   (journal-log))

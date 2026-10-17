@@ -26,7 +26,7 @@
     },
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["custom/cpugov", "idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray"],
+    "modules-center": ["custom/cpugov", "idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray","custom/mullvad"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
 
     "sway/window": {
@@ -143,5 +143,13 @@
         "interval": 10,
         "signal": 8,
         "on-click": "~/.config/waybar/scripts/perf-mode.sh"
+    },
+
+    "custom/mullvad": {
+        "exec-if": "mullvad status | grep -q '^Connected'",
+        "exec": "/home/aku/.config/waybar/scripts/mullvad.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "mullvad-vpn"
     }
 }

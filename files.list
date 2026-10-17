@@ -42,5 +42,4 @@
 .config/mako/config
 
 # CPU-gov
-
 /usr/local/bin/cpu-gov-toggle
