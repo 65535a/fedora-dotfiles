@@ -36,7 +36,7 @@ window#waybar {
     border: 1px solid #2f343a;
 }
 
-#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #mpris, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-widgets-toggle, #custom-cpugov, #custom-mullvad {
+#network, #pulseaudio, #memory, #cpu, #disk, #temperature, #battery, #mpris, #custom-system-drawer, #tray, #bluetooth, #custom-updates, #privacy, #idle_inhibitor, #custom-eww-journal, #custom-eww-stats, #custom-cpugov, #custom-mullvad {
     padding: 0 10px;
     color: #777777;
 }
@@ -77,7 +77,11 @@ window#waybar {
     color: #7a7c7f;
 }
 
-#custom-widgets-toggle:hover {
+#custom-eww-stats:hover {
+    color: #bbbbbb;
+}
+
+#custom-eww-journal:hover {
     color: #bbbbbb;
 }
 

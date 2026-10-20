@@ -1,9 +1,9 @@
 #!/bin/bash
 EWW="$HOME/.local/bin/eww"
-WINDOW="stats-widget"
+WINDOW="$1"
 
 if $EWW active-windows | grep -q "$WINDOW"; then
-    echo '{"text": "󰜬", "class": "active", "tooltip": "Widgets: shown (click to hide)"}'
+    echo "{\"alt\":\"active\",\"class\":\"active\",\"tooltip\":\"$WINDOW: shown (click to hide)\"}"
 else
-    echo '{"text": "󱍕", "class": "inactive", "tooltip": "Widgets: hidden (click to show)"}'
+    echo "{\"alt\":\"inactive\",\"class\":\"inactive\",\"tooltip\":\"$WINDOW: hidden (click to show)\"}"
 fi

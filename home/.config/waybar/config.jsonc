@@ -26,7 +26,7 @@
     },
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["custom/cpugov", "idle_inhibitor", "mpris", "custom/widgets-toggle", "group/system", "tray","custom/mullvad"],
+    "modules-center": ["custom/cpugov", "idle_inhibitor", "mpris", "custom/eww-journal", "custom/eww-stats", "group/system", "tray","custom/mullvad"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery", "clock", "privacy", "custom/updates", "custom/power"],
 
     "sway/window": {
@@ -129,12 +129,23 @@
         "format-icons": { "activated": "󰒳", "deactivated": "󰒲" },
     },
 
-    "custom/widgets-toggle": {
-        "exec": "/home/aku/.config/waybar/scripts/widgets-status.sh",
+    "custom/eww-stats": {
+        "exec": "/home/aku/.config/waybar/scripts/widgets-status.sh stats-widget",
         "return-type": "json",
+        "format": "{icon}",
+        "format-icons": { "active": "󰜬", "inactive": "󱍕" },
         "interval": 2,
-        "on-click": "/home/aku/.config/waybar/scripts/toggle-widgets.sh",
-        "signal": 8
+        "signal": 8,
+        "on-click": "/home/aku/.config/waybar/scripts/toggle-widgets.sh stats-widget 8"
+    },
+    "custom/eww-journal": {
+        "exec": "/home/aku/.config/waybar/scripts/widgets-status.sh journal-widget",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": { "active": "", "inactive": "" },
+        "interval": 2,
+        "signal": 9,
+        "on-click": "/home/aku/.config/waybar/scripts/toggle-widgets.sh journal-widget 9"
     },
 
     "custom/cpugov": {
